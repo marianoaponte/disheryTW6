@@ -1,0 +1,44 @@
+.btn-primary {
+    background-color: white;
+    color: darkorange;
+    font-weight: bold;
+    border-radius: 10rem 10rem 10rem 10rem;
+    border: none;
+}
+
+.btn-primary:hover {
+    background-color: lightgray;
+    color: darkorange;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-primary:focus {
+    color: darkorange;
+    background-color: white;
+    border: none;
+    outline: none;
+}
+
+.btn-secondary {
+    background-color: darkorange;
+    border-radius: 10rem 10rem 10rem 10rem;
+    color: white;
+    font-weight: bold;
+    outline: none;
+    border: none;
+}
+
+.btn-secondary:hover {
+    background-color: orange;
+    color: white;
+    font-weight: bold;
+    border: none;
+}
+
+.btn-secondary:focus {
+    color: white;
+    background-color: darkorange;
+    border: none;
+    outline: none;
+}

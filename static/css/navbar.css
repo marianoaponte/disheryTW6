@@ -1,0 +1,44 @@
+a {
+    color: white;
+}
+
+a:hover {
+    color: white;
+}
+
+a:visited {
+    color: white;
+}
+
+a:focus {
+    color: white;
+}
+
+nav {
+    font-family: inherit;
+    font-weight: bold;
+    box-shadow: 2px 2px 50px black;;
+    color: white;
+}
+
+.nav-link {
+    font-family: inherit;
+    color: white;
+}
+.nav-link:hover {
+    color: lightgray;
+}
+
+.nav-link:focus {
+    color: white;
+}
+
+.navbar-brand {
+    font-size: 300%;
+    font-family: 'lobster', cursive;
+    color: white;
+}
+
+.navbar-custom {
+    background-color: darkorange;
+}
