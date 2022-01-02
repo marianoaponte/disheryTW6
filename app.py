@@ -12,7 +12,7 @@ def addrecipe():
 
 @app.route("/feed")
 def feed():
-    return render_template("addrecipe.html")
+    return render_template("feed.html")
 
 if __name__ == '__main__':
     app.run()
