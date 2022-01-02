@@ -7,9 +7,12 @@ def index():
     return render_template("index.html")
 
 @app.route("/addrecipe")
-def test():
-    return render_template("test.html")
+def addrecipe():
+    return render_template("addrecipe.html")
+
+@app.route("/feed")
+def feed():
+    return render_template("addrecipe.html")
 
 if __name__ == '__main__':
     app.run()
-
