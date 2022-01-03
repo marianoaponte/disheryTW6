@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/searchbar.css') }}">
 
     <!-- Some pwa requisites -->
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
@@ -27,5 +28,16 @@
             <ul class="navbar-nav">
                 <li><a class="navbar-brand" href="#">Dishery</a></li>
             </ul>
+        </div>
+    </nav>
+    <main>
+        <span class="p-5"></span>
+        <div class="searchbar container d-flex justify-content-center">
+
+            <label for="search" class="searchbar"></label>
+            <input type="text" placeholder="Cerca una Ricetta..." name="Cerca una Ricetta">
+        </div>
+
+    </main>
 </body>
 </html>
