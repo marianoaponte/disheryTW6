@@ -1,4 +1,4 @@
-#search-box{
+.search-box {
     font-family: 'Poppins', sans-serif;
     height: 50px;
     width: 600px;
@@ -6,7 +6,13 @@
     border-radius: 10rem 10rem 10rem 10rem;
 }
 
-
+.search-button {
+    height: 50px;
+    width: 50px;
+    border: solid 3px #f57505;
+    color: #f57505;
+    border-radius: 10rem 10rem 10rem 10rem;
+}
 
 
 
