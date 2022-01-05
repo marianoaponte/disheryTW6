@@ -21,18 +21,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<nav class="navbar navbar-expand-sm navbar-custom">
-    <div class="container-fluid">
-        <ul class="navbar-nav">
-            <li><a class="navbar-brand" href="#">Dishery</a></li>
-        </ul>
-    </div>
 
-    <div class="container-fluid d-flex justify-content-end">
-        <button type="button" class="btn-lg btn-primary">LOGIN</button>
-    </div>
-</nav>
+{% extends "base.html" %}
 
+{% block content %}
 <form>
     <label for="recipename">Recipe Name</label><br>
     <input type="text" id="recipename" name="recipename"><br>
@@ -46,6 +38,10 @@
 </form>
 
 <button type="button" onclick="addField()">+</button>
+{% endblock %}
+
+
+
 
 <!-- My JS scripts -->
 <script src="{{ url_for('static', filename='js/global.js') }}"></script>
