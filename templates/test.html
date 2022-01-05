@@ -22,6 +22,7 @@
 <body>
 
 <!-- Searchbar -->
+<!--
 <div class="input-group w-50">
     <input type="text" class="form-control search-box" placeholder="Input group example" aria-label="Input group example" aria-describedby="basic-addon1">
 
@@ -33,7 +34,60 @@
         </span>
     </button>
 </div>
+
+<br/>
+<br/>
+<br/>
+-->
 <!-- Searchbar end -->
+
+{% extends "base.html" %}
+
+<!-- WTF LOGIN TEST -->
+{% block content %}
+
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }} <br>
+        {{ form.username(size=32) }}
+    </p>
+
+    <p>
+        {{ form.password.label }} <br>
+        {{ form.password(size=32) }}
+    </p>
+
+    <p>{{ form.rememberme() }} {{ form.rememberme.label }}</p>
+
+    <p>{{ form.submit() }}</p>
+</form>
+
+
+{% endblock %}
+<!-- WTF LOGIN End -->
+
+<!-- WTF REGISTER TEST -->
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.username.label }} <br>
+        {{ form.username(size=32) }}
+    </p>
+
+    <p>
+        {{ form.password.label }} <br>
+        {{ form.password(size=32) }}
+    </p>
+
+    <p>{{ form.rememberme() }} {{ form.rememberme.label }}</p>
+
+    <p>{{ form.submit() }}</p>
+</form>
+
+
+<!-- WTF REGISTER End-->
+
 
 
 </body>

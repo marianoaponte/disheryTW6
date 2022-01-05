@@ -1,6 +1,10 @@
 from flask import Flask, render_template
+from complements.forms import LoginForm
+from complements.config import Config
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
+app.config.from_object(Config)
+
 
 @app.route("/")
 def index():
@@ -16,7 +20,8 @@ def feed():
 
 @app.route("/test")
 def test():
-    return render_template("test.html")
+    form = LoginForm()
+    return render_template("test.html", form=form)
 
 if __name__ == '__main__':
     app.run()
