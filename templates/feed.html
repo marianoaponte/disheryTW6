@@ -23,59 +23,21 @@
 
 <!-- BODY -->
 <body class="fullscreen">
-<div class="content">
-    <nav class="navbar navbar-expand-sm navbar-custom">
-        <div class="container-fluid d-flex justify-content-center">
-            <div class="container-fluid d-flex justify-content-left">
-                <ul class="navbar-nav">
-                    <li><a class="navbar-brand" href="#">Dishery</a></li>
-                </ul>
-            </div>
-                <div class="container d-flex align-items-center justify-content-end">
-                   <form action="" id="search-form">
-                      <input type="search" placeholder="cerca una ricetta..." name="" id="search-box">
 
-                      <label for="search-box" class="fas fa-search"></label>
-                          <button type="search"><path xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                              <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-                          </button>
-                   </form>
-                </div>
-            </div>
-    </nav>
-</div>
+{% extends "base.html" %}
 
+{% block content %}
 
 <!---PAGE AS A GUEST--->
 <div class="polaroid_1">
-     <img src="involtini.jpg" style="width:180px" >
+     <img src="{{ url_for('static', filename='images/involtini') }}" style="width:180px" >
         <div class="conteiner">
           <p>Involtini Primavera</p>
         </div>
 </div>
 
-<div class="polaroid_2">
-    <img src="fiore_zucca.jpg" style="width:180px">
-      <div class="conteiner">
-          <p> Fiori di Zucca in Pastella</p>
-        </div>
-</div>
+{% endblock %}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</div>
 
 </body>
 </html>
