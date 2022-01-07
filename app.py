@@ -1,4 +1,4 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, flash, redirect
 from complements.forms import *
 from complements.config import Config
 
@@ -18,9 +18,14 @@ def addrecipe():
 def feed():
     return render_template("feed.html")
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def test():
     form = LoginForm()
+
+    if form.validate_on_submit():
+        flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.rememberme.data))
+        return redirect('/index')
+
     return render_template("login.html", form=form)
 
 @app.route("/register")
