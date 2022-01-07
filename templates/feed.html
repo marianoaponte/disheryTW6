@@ -27,12 +27,18 @@
 {% extends "base.html" %}
 
 {% block content %}
+    <br/>
+    <br/>
+    <br/>
+
 
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    <p>
+    <div class="centerform">
+      <p>
         {{ form.search_string(size=32, class_="search-box") }} {{ form.submit(class_="search-button") }}
-    </p>
+      </p>
+    </div>
 </form>
 
 
