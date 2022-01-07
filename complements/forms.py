@@ -16,7 +16,7 @@ class RegisterForm(FlaskForm):
     username = StringField('Username', validators=[DataRequired()])
     password = PasswordField('Password', validators=[DataRequired()])
     confirmpassword = PasswordField('Password', validators=[DataRequired()])
-    submit = SubmitField('Sign In')
+    submit = SubmitField('Register')
 
 
 #ADD RECIPE FORM
@@ -27,13 +27,16 @@ class AddRecipeForm(FlaskForm):
     quantity = FieldList(StringField('Ingredient', validators=[DataRequired()]))
     measure = FieldList(StringField('Ingredient', validators=[DataRequired()]))
     #to add: photo field
+    submit = SubmitField('Submit Recipe')
 
 
 #REVIEW FORM
 class ReviewForm(FlaskForm):
     rating = IntegerField('Rating')
+    submit = SubmitField('Submit Review')
 
 
 #SEARCH FORM
 class SearchForm(FlaskForm):
-    search_string = StringField('Search', validators=[DataRequired()])
+    search_string = StringField('Search')
+    submit = SubmitField('Search Recipe')

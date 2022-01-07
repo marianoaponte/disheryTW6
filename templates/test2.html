@@ -21,31 +21,10 @@
 </head>
 <body>
 
-<!-- Searchbar -->
-<!--
-<div class="input-group w-50">
-    <input type="text" class="form-control search-box" placeholder="Input group example" aria-label="Input group example" aria-describedby="basic-addon1">
-
-    <button type="button" class="search-button">
-        <span class="input-group-text">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search">
-                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"></path>
-            </svg>
-        </span>
-    </button>
-</div>
-
-<br/>
-<br/>
-<br/>
--->
-<!-- Searchbar end -->
 
 {% extends "base.html" %}
 
-<!-- WTF LOGIN TEST -->
-{% block content %}
-
+<!-- WTF REGISTER TEST -->
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     <p>
@@ -58,18 +37,13 @@
         {{ form.password(size=32) }}
     </p>
 
-    <p>{{ form.rememberme() }} {{ form.rememberme.label }}</p>
+    <p>
+        {{ form.confirmpassword.label }}
+        {{ form.confirmpassword(size=32) }}
+    </p>
 
     <p>{{ form.submit() }}</p>
 </form>
-<!-- WTF LOGIN End -->
-
-{% endblock %}
-
-
-
-
-
-
+<!-- WTF REGISTER End-->
 </body>
 </html>
