@@ -10,14 +10,21 @@ app.config.from_object(Config)
 def index():
     return render_template("index.html")
 
+
 @app.route("/addrecipe")
 def addrecipe():
     return render_template("addrecipe.html")
 
-@app.route("/feed")
+
+@app.route("/feed", methods=['GET', 'POST'])
 def feed():
     form = SearchForm()
+
+    if form.validate_on_submit():
+        flash('Searched {} recipe'.format(form.search_string.data))
+
     return render_template("feed.html", form=form)
+
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -29,6 +36,7 @@ def login():
 
     return render_template("login.html", form=form)
 
+
 @app.route("/register", methods=['GET', 'POST'])
 def register():
     form = RegisterForm()
@@ -38,7 +46,6 @@ def register():
         return redirect("/login")
 
     return render_template("register.html", form=form)
-
 
 
 
