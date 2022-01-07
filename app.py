@@ -1,5 +1,5 @@
 from flask import Flask, render_template
-from complements.forms import LoginForm
+from complements.forms import *
 from complements.config import Config
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
@@ -25,8 +25,11 @@ def test():
 
 @app.route("/test2")
 def test2():
-    form = LoginForm
+    form = RegisterForm()
     return render_template("test2.html", form=form)
+
+
+
 
 if __name__ == '__main__':
     app.run()

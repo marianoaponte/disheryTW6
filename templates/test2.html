@@ -24,9 +24,12 @@
 
 {% extends "base.html" %}
 
+{% block content %}
+
 <!-- WTF REGISTER TEST -->
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
+
     <p>
         {{ form.username.label }} <br>
         {{ form.username(size=32) }}
@@ -38,12 +41,15 @@
     </p>
 
     <p>
-        {{ form.confirm_password.label }}
+        {{ form.confirm_password.label }} <br>
         {{ form.confirm_password(size=32) }}
     </p>
 
     <p>{{ form.submit() }}</p>
 </form>
 <!-- WTF REGISTER End-->
+
+{% endblock %}
+
 </body>
 </html>

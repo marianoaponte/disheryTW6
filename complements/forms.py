@@ -1,11 +1,11 @@
 from flask_wtf import FlaskForm
 from wtforms import StringField, PasswordField, BooleanField, SubmitField, IntegerField, FieldList
-from wtforms.validators import DataRequired
+from wtforms.validators import DataRequired, Length, EqualTo
 
 
 #LOGIN FORM
 class LoginForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])
     password = PasswordField('Password', validators=[DataRequired()])
     rememberme = BooleanField('Remember Me')
     submit = SubmitField('Sign In')
@@ -13,9 +13,9 @@ class LoginForm(FlaskForm):
 
 #REGISTER FORM
 class RegisterForm(FlaskForm):
-    username = StringField('Username', validators=[DataRequired()])
-    password = PasswordField('Password', validators=[DataRequired()])
-    confirm_password = PasswordField('Password', validators=[DataRequired()])
+    username = StringField('Username', validators=[DataRequired(), Length(min=3, max=20)])
+    password = PasswordField('Password', validators=[DataRequired(), Length(min=8, max=16)])
+    confirm_password = PasswordField('Confirm Password', validators=[DataRequired(), EqualTo('password')])
     submit = SubmitField('Register')
 
 
@@ -24,8 +24,8 @@ class AddRecipeForm(FlaskForm):
     name = StringField('Username', validators=[DataRequired()])
     base = IntegerField('Base')
     ingredients = FieldList(StringField('Ingredient', validators=[DataRequired()]))
-    quantity = FieldList(StringField('Ingredient', validators=[DataRequired()]))
-    measure = FieldList(StringField('Ingredient', validators=[DataRequired()]))
+    quantity = FieldList(StringField('Quantity', validators=[DataRequired()]))
+    measure = FieldList(StringField('Measure Unit', validators=[DataRequired()]))
     #to add: photo field
     submit = SubmitField('Submit Recipe')
 
