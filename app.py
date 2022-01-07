@@ -1,6 +1,10 @@
-from flask import Flask, render_template, flash, redirect
+from flask import Flask, render_template, flash, redirect, jsonify
+from flask_login import LoginManager
 from complements.forms import *
 from complements.config import Config
+from complements import db
+from werkzeug.security import generate_password_hash, check_password_hash
+from complements import models
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)
@@ -32,7 +36,15 @@ def login():
 
     if form.validate_on_submit():
         flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.rememberme.data))
-        return redirect("/feed")
+
+        userdata = db.users_col.find_one({"username": form.username.data})
+        if userdata is not None:
+            if check_password_hash(userdata['password'], form.password.data):
+                return redirect("/feed")
+            else:
+                return jsonify({"error": "Password not matching!"})
+        else:
+            return jsonify({"error": "Username does not exist!"})
 
     return render_template("login.html", form=form)
 
@@ -43,11 +55,21 @@ def register():
 
     if form.validate_on_submit():
         flash('Registration requested for user {}'.format(form.username.data))
+
+        # if user exists, then error
+        if db.users_col.find_one({"username": form.username.data}):
+            return jsonify({"error": "Username already exists!"}), 400
+
+        post = {"username": form.username.data, "password": generate_password_hash(form.password.data)}
+        db.users_col.insert_one(post)
         return redirect("/login")
 
     return render_template("register.html", form=form)
 
 
-
 if __name__ == '__main__':
     app.run()
+
+"""
+login = LoginManager(app)
+"""
