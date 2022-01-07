@@ -1,3 +1,25 @@
 .formclass-form {
     align-content: center;
 }
+
+#username {
+
+    width:20%;
+    margin-left:30%;
+    margin-right:30%;
+}
+#password {
+
+    width:20%;
+    margin-left:30%;
+    margin-right:30%;
+}
+
+
+#submit {
+
+    width:20%;
+    margin-left:30%;
+    margin-right:30%;
+}
+

@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='css/navbar.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/buttons.css') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/searchbar.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/form.css') }}">
 
     <!-- Some pwa requisites -->
     <link rel="manifest" href="{{ url_for('static', filename='manifest.json') }}">
@@ -48,19 +49,29 @@
 
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    <p>
+    <div class="center">
+          <p>
         {{ form.username.label }} <br>
         {{ form.username(size=32) }}
-    </p>
+        </p>
+    </div>
 
+    <div class="center">
     <p>
         {{ form.password.label }} <br>
         {{ form.password(size=32) }}
     </p>
+    </div>
 
-    <p>{{ form.rememberme() }} {{ form.rememberme.label }}</p>
 
-    <p>{{ form.submit() }}</p>
+    <div class="center">
+        <p>{{ form.rememberme() }} {{ form.rememberme.label }}</p>
+    </div>
+
+
+
+        <p>{{ form.submit() }}</p>
+
 </form>
 <!-- WTF LOGIN End -->
 
