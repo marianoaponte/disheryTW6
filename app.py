@@ -24,13 +24,18 @@ def test():
 
     if form.validate_on_submit():
         flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.rememberme.data))
-        return redirect('/index')
+        return redirect("/feed")
 
     return render_template("login.html", form=form)
 
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def test2():
     form = RegisterForm()
+
+    if form.validate_on_submit():
+        flash('Registration requested for user {}'.format(form.username.data))
+        return redirect("/login")
+
     return render_template("register.html", form=form)
 
 
