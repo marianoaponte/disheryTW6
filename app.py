@@ -23,5 +23,10 @@ def test():
     form = LoginForm()
     return render_template("test.html", form=form)
 
+@app.route("/test2")
+def test2():
+    form = LoginForm
+    return render_template("test2.html", form=form)
+
 if __name__ == '__main__':
     app.run()
