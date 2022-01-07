@@ -2,7 +2,7 @@
     align-content: center;
 }
 
-
+/*
 #username {
 
     width:20%;
@@ -22,5 +22,10 @@
     width:20%;
     margin-left:30%;
     margin-right:30%;
+}
+
+ */
+.centerform {
+    text-align: center;
 }
 

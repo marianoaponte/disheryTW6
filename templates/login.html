@@ -25,17 +25,17 @@
 
 <!-- WTF LOGIN TEST -->
 {% block content %}
-
+<span class="spacer1"></span>
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    <div class="center">
+    <div class="centerform">
           <p>
         {{ form.username.label }} <br>
         {{ form.username(size=32) }}
         </p>
     </div>
 
-    <div class="center">
+    <div class="centerform">
     <p>
         {{ form.password.label }} <br>
         {{ form.password(size=32) }}
@@ -43,13 +43,14 @@
     </div>
 
 
-    <div class="center">
+    <div class="centerform">
         <p>{{ form.rememberme() }} {{ form.rememberme.label }}</p>
     </div>
 
 
-
+    <div class="centerform">
         <p>{{ form.submit() }}</p>
+    </div>
 
 </form>
 <!-- WTF LOGIN End -->
