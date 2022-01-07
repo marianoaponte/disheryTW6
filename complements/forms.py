@@ -39,4 +39,4 @@ class ReviewForm(FlaskForm):
 #SEARCH FORM
 class SearchForm(FlaskForm):
     search_string = StringField('Search')
-    submit = SubmitField('Search Recipe')
+    submit = SubmitField('Go')

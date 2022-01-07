@@ -28,15 +28,29 @@
 
 {% block content %}
 
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.search_string(size=32, class_="search-box") }} {{ form.submit(class_="search-button") }}
+    </p>
+</form>
+
+
+
 <!---PAGE AS A GUEST--->
+<!--
 <div class="polaroid_1">
      <img src="{{ url_for('static', filename='images/involtini') }}" style="width:180px" >
         <div class="conteiner">
           <p>Involtini Primavera</p>
         </div>
 </div>
-
+-->
 {% endblock %}
+
+
+
+
 
 
 </body>

@@ -16,10 +16,11 @@ def addrecipe():
 
 @app.route("/feed")
 def feed():
-    return render_template("feed.html")
+    form = SearchForm()
+    return render_template("feed.html", form=form)
 
 @app.route("/login", methods=['GET', 'POST'])
-def test():
+def login():
     form = LoginForm()
 
     if form.validate_on_submit():
@@ -29,7 +30,7 @@ def test():
     return render_template("login.html", form=form)
 
 @app.route("/register", methods=['GET', 'POST'])
-def test2():
+def register():
     form = RegisterForm()
 
     if form.validate_on_submit():

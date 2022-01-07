@@ -29,20 +29,23 @@
     <br/>
     <br/>
     <br/>
+
+
+<!-- WTF Login -->
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
     <div class="centerform">
-          <p>
-        {{ form.username.label }} <br>
-        {{ form.username(size=32) }}
+        <p>
+            {{ form.username.label }} <br>
+            {{ form.username(size=32) }}
         </p>
     </div>
 
     <div class="centerform">
-    <p>
-        {{ form.password.label }} <br>
-        {{ form.password(size=32) }}
-    </p>
+        <p>
+            {{ form.password.label }} <br>
+            {{ form.password(size=32) }}
+        </p>
     </div>
 
 
@@ -54,7 +57,6 @@
     <div class="centerform">
         <p>{{ form.submit() }}</p>
     </div>
-
 </form>
 <!-- WTF LOGIN End -->
 
