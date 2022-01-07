@@ -18,15 +18,15 @@ def addrecipe():
 def feed():
     return render_template("feed.html")
 
-@app.route("/test")
+@app.route("/login")
 def test():
     form = LoginForm()
-    return render_template("test.html", form=form)
+    return render_template("login.html", form=form)
 
-@app.route("/test2")
+@app.route("/register")
 def test2():
     form = RegisterForm()
-    return render_template("test2.html", form=form)
+    return render_template("register.html", form=form)
 
 
 
