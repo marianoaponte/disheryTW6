@@ -28,12 +28,12 @@
 <nav class="navbar navbar-expand-sm navbar-custom">
     <div class="container-fluid">
         <ul class="navbar-nav">
-            <li><a class="navbar-brand" href="#">Dishery</a></li>
+            <li><a class="navbar-brand" href=" {{ url_for('index') }}">Dishery</a></li>
         </ul>
     </div>
 
     <div class="container-fluid d-flex justify-content-end">
-        <button type="button" class="btn-lg btn-primary">LOGIN</button>
+        <a href=" {{ url_for('login') }}"><button type="button" class="btn-lg btn-primary">LOGIN</button></a>
     </div>
 </nav>
 

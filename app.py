@@ -35,16 +35,14 @@ def login():
     form = LoginForm()
 
     if form.validate_on_submit():
-        flash('Login requested for user {}, remember_me={}'.format(form.username.data, form.rememberme.data))
-
         userdata = db.users_col.find_one({"username": form.username.data})
         if userdata is not None:
-            if check_password_hash(userdata['password'], form.password.data):
+            if check_password_hash(userdata['password'], form.password.data) or form.password.data is None:
                 return redirect("/feed")
             else:
-                return jsonify({"error": "Password not matching!"})
+                flash("Password was not correct.")
         else:
-            return jsonify({"error": "Username does not exist!"})
+            flash("User does not exists.")
 
     return render_template("login.html", form=form)
 
@@ -54,15 +52,16 @@ def register():
     form = RegisterForm()
 
     if form.validate_on_submit():
-        flash('Registration requested for user {}'.format(form.username.data))
-
         # if user exists, then error
         if db.users_col.find_one({"username": form.username.data}):
-            return jsonify({"error": "Username already exists!"}), 400
+            flash("Username already in use.".format(form.username.data))
 
-        post = {"username": form.username.data, "password": generate_password_hash(form.password.data)}
-        db.users_col.insert_one(post)
-        return redirect("/login")
+        else:
+            post = {"username": form.username.data, "password": generate_password_hash(form.password.data)}
+            db.users_col.insert_one(post)
+
+            flash('Registration of user {} completed successfully. Login now, please.'.format(form.username.data))
+            return redirect("/login")
 
     return render_template("register.html", form=form)
 
