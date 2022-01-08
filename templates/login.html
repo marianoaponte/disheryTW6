@@ -64,6 +64,11 @@
                 {% if messages %}
                     {% for message in messages %}
                         {{ message }}
+                        {% if userdata is not none %}
+                            <p>
+                              <a href="{{ url_for('register') }}"><button type="button" class="btn-lg btn-secondary" id="createjoin">CREATE ACCOUNT</button></a>
+                            </p>
+                        {% endif %}
                     {% endfor %}
                 {% endif %}
             {% endwith %}
