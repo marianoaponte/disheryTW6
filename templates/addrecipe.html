@@ -24,8 +24,13 @@
 
 {% extends "base.html" %}
 
+
 {% block content %}
+    <br/>
+    <br/>
+    <br/>
 <form>
+<div class="centerform">
     <label for="recipename">Recipe Name</label><br>
     <input type="text" id="recipename" name="recipename"><br>
     <br>
@@ -37,7 +42,9 @@
     <div id="recipecontainer"></div>
 </form>
 
+
 <button type="button" onclick="addField()">+</button>
+    </div>
 {% endblock %}
 
 
