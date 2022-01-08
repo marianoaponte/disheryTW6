@@ -44,9 +44,9 @@
         </div>
 
         <div class="container d-flex justify-content-center">
-            <button type="button" class="btn-lg btn-secondary" id="createjoin">CREATE ACCOUNT</button>
+            <a href="{{ url_for('register') }}"><button type="button" class="btn-lg btn-secondary" id="createjoin">CREATE ACCOUNT</button></a>
             <span class="p-3"></span>
-            <button type="button" class="btn-lg btn-secondary" id="guestjoin">JOIN AS A GUEST</button>
+            <a href=" {{ url_for('feed') }}"><button type="button" class="btn-lg btn-secondary" id="guestjoin">JOIN AS A GUEST</button></a>
         </div>
     </main>
 </div>
