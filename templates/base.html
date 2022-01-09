@@ -33,7 +33,15 @@
     </div>
 
     <div class="container-fluid d-flex justify-content-end">
-        <a href=" {{ url_for('login') }}"><button type="button" class="btn-lg btn-primary">LOGIN</button></a>
+        {% if current_user.is_authenticated %}
+            <p class="align-content-center">
+                {{ current_user.username }}
+                <a href=" {{ url_for('logout') }}"><button type="button" class="btn-lg btn-primary">LOGOUT</button></a>
+            </p>
+        {% else %}
+            <a href=" {{ url_for('login') }}"><button type="button" class="btn-lg btn-primary">LOGIN</button></a>
+        {% endif%}
+
     </div>
 </nav>
 
