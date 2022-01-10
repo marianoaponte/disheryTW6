@@ -1,10 +1,11 @@
-from flask import Flask, render_template, flash, redirect, jsonify
+from flask import Flask, render_template, flash, redirect, jsonify, request, url_for
 from flask_login import LoginManager, login_user, current_user, login_required, logout_user
 from complements.forms import *
 from complements.config import Config
 from complements import db
 from werkzeug.security import generate_password_hash, check_password_hash
 from complements.models import User, Recipe
+from bson.json_util import dumps
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)
@@ -18,11 +19,35 @@ def index():
 @app.route("/feed", methods=['GET', 'POST'])
 def feed():
     form = SearchForm()
+    button_form = ''
+    rec_data = list()
 
     if form.validate_on_submit():
-        flash('Searched {} recipe'.format(form.search_string.data))
+        query1 = {"recipename": form.search_string.data}
+        searched_data = db.recipes_col.find(query1)
 
-    return render_template("feed.html", form=form)
+        for recipe in searched_data:
+            rec_data.append(recipe)
+
+        print(rec_data)
+
+    if request.method == 'POST':
+        if request.form.get('val'):
+            return redirect(url_for('reciperoute', recipe=request.form.get('val')))
+
+    return render_template("feed.html", form=form, rec_data=rec_data)
+
+
+@app.route("/recipe/<recipe>")
+def reciperoute(recipe):
+    query1 = {"recipename": recipe}
+    recipe = db.recipes_col.find_one(query1)
+
+    inglist = recipe['ingredients']
+    qtlist = recipe['quantity']
+    mslist = recipe['measure']
+
+    return render_template("recipe.html", recipe=recipe, inglist=inglist, qtlist=qtlist, mslist=mslist)
 
 
 @app.route("/login", methods=['GET', 'POST'])

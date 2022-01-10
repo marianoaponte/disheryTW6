@@ -5,8 +5,7 @@
      <!-- Bootstrap -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-    <!-- Ajax -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Dishery | Login</title>
 
     <!-- Stylesheets -->
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -23,14 +22,11 @@
 <body>
 {% extends "base.html" %}
 
-<!-- WTF LOGIN TEST -->
 {% block content %}
     <br/>
     <br/>
     <br/>
     <br/>
-
-
 <!-- WTF Login -->
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
@@ -64,7 +60,7 @@
                 {% if messages %}
                     {% for message in messages %}
                         {{ message }}
-                        {% if userdata is not none %}
+                        {% if userdata is none %}
                             <p>
                               <a href="{{ url_for('register') }}"><button type="button" class="btn-lg btn-secondary" id="createjoin">CREATE ACCOUNT</button></a>
                             </p>
@@ -80,7 +76,6 @@
     </div>
 </form>
 <!-- WTF LOGIN End -->
-
 {% endblock %}
 </body>
 </html>
