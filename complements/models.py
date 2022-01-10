@@ -26,3 +26,18 @@ class User(UserMixin):
     def get_id(self):
         return self.username
 
+
+class Recipe:
+    recipename = ""
+    base = ""
+    ingredients = []
+    quantity = []
+    measure = []
+
+    def __init__(self, recipename, base, ingredients, quantity, measure):
+        self.recipename = recipename
+        self.base = base
+        self.ingredients = ingredients
+        self.quantity = quantity
+        self.measure = measure
+

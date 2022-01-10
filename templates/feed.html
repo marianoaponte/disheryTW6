@@ -31,6 +31,13 @@
     <br/>
     <br/>
 
+{% if current_user.is_authenticated %}
+    <div class="container d-flex justify-content-center">
+        <a href=" {{ url_for('recipeingno') }}"><button type="button" class="btn-lg btn-secondary">ADD A NEW RECIPE</button></a>
+    </div>
+    <br>
+    <br>
+{% endif %}
 
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}

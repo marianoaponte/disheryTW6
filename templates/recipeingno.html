@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dishery | How many ingredients?</title>
+</head>
+<body>
+
+
+<form action="" method="post" novalidate>
+    <div class="centerform">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.entrynumber.label }} <br>
+            {{ form.entrynumber(size=10) }}
+        </p>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </div>
+</form>
+
+
+<!-- My JS scripts -->
+<script src="{{ url_for('static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('static', filename='js/addField.js') }}"></script>
+<script src="{{ url_for('static', filename='js/removeField.js') }}"></script>
+</body>
+</html>

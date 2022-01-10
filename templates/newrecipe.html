@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dishery | Add new recipe!</title>
+</head>
+<body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<form action="" method="post" novalidate>
+    <div class="centerform">
+        {{ form.hidden_tag() }}
+        <p>
+            {{ form.recipename.label }} <br>
+            {{ form.recipename(size=32) }}
+        </p>
+        <p>
+            {{ form.base.label }} <br>
+            {{ form.base(size=3) }}
+        </p>
+        <br>
+        <p>
+            {{ form.ingredients.label }}
+            {{ form.ingredients(size=32) }}
+        </p>
+        <br>
+        <p>
+            {{ form.submit() }}
+        </p>
+    </div>
+
+    <p style="color: #f57505">
+            {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                    {% for message in messages %}
+                        {{ message }}
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+
+            {% if form.errors %}
+                {{ form.errors }}
+            {% endif %}
+    </p>
+</form>
+
+
+<!-- My JS scripts -->
+<script src="{{ url_for('static', filename='js/global.js') }}"></script>
+<script src="{{ url_for('static', filename='js/addField.js') }}"></script>
+<script src="{{ url_for('static', filename='js/removeField.js') }}"></script>
+</body>
+</html>
+
+
+</body>
+</html>

@@ -4,7 +4,7 @@ from complements.forms import *
 from complements.config import Config
 from complements import db
 from werkzeug.security import generate_password_hash, check_password_hash
-from complements.models import User
+from complements.models import User, Recipe
 
 app = Flask(__name__, static_url_path='', template_folder='templates', static_folder='static')
 app.config.from_object(Config)
@@ -13,12 +13,6 @@ app.config.from_object(Config)
 @app.route("/")
 def index():
     return render_template("index.html")
-
-
-@app.route("/addrecipe")
-@login_required
-def addrecipe():
-    return render_template("addrecipe.html")
 
 
 @app.route("/feed", methods=['GET', 'POST'])
@@ -81,9 +75,54 @@ def logout():
     return redirect("/")
 
 
+entryno = 0
+
+
+@app.route("/recipeingno", methods=['GET', 'POST'])
+@login_required
+def recipeingno():
+    form = EntryForm()
+
+    if form.validate_on_submit():
+        global entryno
+        entryno = form.entrynumber.data
+        flash("{}".format(entryno))
+        return redirect("/newrecipe")
+
+    return render_template("recipeingno.html", form=form)
+
+
+@app.route("/newrecipe", methods=['GET', 'POST'])
+@login_required
+def newrecipe():
+    class LocalForm(AddRecipeForm): pass
+
+    LocalForm.ingredients = FieldList(FormField(IngredientEntry), min_entries=entryno, validators=[DataRequired()])
+
+    form = LocalForm()
+    if form.validate_on_submit():
+        inglist = []
+        qtlist = []
+        mslist = []
+
+        for field in form.ingredients:
+            inglist.append(field.ingredient.data)
+            qtlist.append(field.quantity.data)
+            mslist.append(field.measure.data)
+
+        to_add = Recipe(recipename=form.recipename.data, base=form.base.data, ingredients=inglist, quantity=qtlist, measure=mslist)
+
+        db.recipes_col.insert_one(to_add.__dict__)
+
+        flash("{}".format(to_add))
+
+        return redirect("/feed")
+
+    return render_template("newrecipe.html", form=form)
+
+
 if __name__ == '__main__':
     app.run()
-
 
 login = LoginManager(app)
 

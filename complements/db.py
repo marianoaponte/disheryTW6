@@ -12,13 +12,3 @@ users_db = cluster["usersDB"]
 # connection to collections
 recipes_col = recipes_db["recipesCOL"]
 users_col = users_db["usersCOL"]
-
-"""
-# test recipe
-post = {"_id": 0, "name": "recipe1", "for": 5}
-
-print(post)
-
-#insert test
-collection.insert_one(post)
-"""
