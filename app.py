@@ -65,6 +65,7 @@ def register():
             user.set_password(self=user, password=form.password.data)
             db.users_col.insert_one(user.__dict__)
             flash('Registration of user {} completed successfully. Login now, please.'.format(form.username.data))
+            return redirect("/login")
 
     return render_template("register.html", form=form)
 
