@@ -22,10 +22,11 @@
 <br>
 <form action="" method="post" novalidate>
     {{ form.hidden_tag() }}
-    <div class="centerform">
+
         <p>
             {{ form.recipename.label }} <br>
             {{ form.recipename(size=32) }}
+
         </p>
         <p>
             {{ form.base.label }} <br>
@@ -40,7 +41,6 @@
         <p>
             {{ form.submit() }}
         </p>
-    </div>
 
     <p style="color: #f57505">
             {% with messages = get_flashed_messages() %}
