@@ -18,24 +18,26 @@
 <br>
 <h2 style="text-align: center">{{ recipe['recipename'] }}</h2>
 <br>
+    <h4 style="text-align: center">Ricetta per {{ recipe['base']}} </h4>
 <br>
-<div class="row">
+    <br>
+<div class="container-fluid row">
     <div class="col">
-        <h2 style="text-align: center">Ingredient:</h2>
+        <h4 style="text-align: center">Ingredient:</h4>
         {% for ing in inglist %}
         {{ ing }}
         <br>
         {% endfor %}
     </div>
     <div class="col">
-        <h2 style="text-align: center">Quantity:</h2>
+        <h4 style="text-align: center">Quantity:</h4>
         {% for qt in qtlist %}
         {{ qt }}
         <br>
         {% endfor %}
     </div>
     <div class="col">
-        <h2 style="text-align: center">Measure Unit:</h2>
+        <h4 style="text-align: center">Measure Unit:</h4>
         {% for ms in mslist %}
         {{ ms }}
         <br>
